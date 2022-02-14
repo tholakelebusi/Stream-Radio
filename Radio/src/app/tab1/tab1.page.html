@@ -4,6 +4,7 @@
       Stations
     </ion-title>
   </ion-toolbar>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -12,6 +13,42 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card *ngIf="selectedid" class="card">
+    <audio id="player" src="{{selected[0].streamlink}}" autoplay>
+    <ion-card-header>
+      <ion-card-subtitle> <img src={{selected[0].image}} class="img" /></ion-card-subtitle>
+      <ion-card-title class="title">{{selected[0].name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content class="content">
+      <ion-button color="light" >
+        <i class="material-icons" (click)="back()">
+        </i>
+      </ion-button>
+    
+      
+      <ion-button color="light">
+        <i onclick="document.getElementById('player').play()" class="material-icons" *ngIf="playbutton" (click)="playpause()">
+         
+        </i>
+      </ion-button>
+    
+      <ion-button color="light">
+        <i onclick="document.getElementById('player').pause()" class="material-icons" *ngIf="pausebutton" (click)="pauseplay()">
+          
+        </i>
+      </ion-button>
+    
+      <ion-button color="light">
+      <i class="material-icons" (click)="next()">
+      
+      </i>
+      </ion-button>
+    </ion-card-content>
+  </audio>
+  </ion-card>
+ 
 
   <ion-grid>
     <ion-row class="row" >
