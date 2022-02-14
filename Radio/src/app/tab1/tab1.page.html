@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Stations
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,10 +14,20 @@
   </ion-header>
 
   <ion-grid>
-    <ion-list  *ngFor="let station of stations">
-      <ion-item>
-        <ion-label (click)="getId(station.idNumber)">{{station.name}}</ion-label>
-      </ion-item>
-    </ion-list>
+    <ion-row class="row" >
+    <ion-col  [size]="4" *ngFor="let station of stations">
+        <ion-card>
+          <ion-card-content >
+            <img src={{station.image}} (click)="getId(station.idNumber)">
+          </ion-card-content>
+          <ion-label (click)="getId(station.idNumber)">{{station.name}}</ion-label>
+        </ion-card>
+    </ion-col>
+  </ion-row>
+
   </ion-grid>
+
+ 
+  
+  
 </ion-content>
