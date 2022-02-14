@@ -13,5 +13,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-grid>
+    <ion-list  *ngFor="let station of stations">
+      <ion-item>
+        <ion-label (click)="getId(station.idNumber)">{{station.name}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
 </ion-content>

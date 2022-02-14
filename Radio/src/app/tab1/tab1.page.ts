@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StationsService } from '../services/stations.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,80 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  stations:any;
+  selected:any;
+  selectedid:boolean=false
+  notselected:boolean=true
+  nextb:any;
+  playbutton:boolean=false;
+  pausebutton:boolean=true;
+  searched: Object;
 
+ name:any;
+
+  employees: any;
+  constructor(private staionService:StationsService) { }
+
+
+
+  ngOnInit(): void {
+    this.staionService.getAllStation().subscribe((stations)=>
+    this.stations=stations
+    
+    ),
+    this.getId
+   
+  }
+
+ 
+
+  getId(id:number)
+  {
+    localStorage.setItem("numbers",id.toString());
+    console.log(id);
+    
+  this.selectedid=true;
+  this.notselected=false
+    
+   
+    this.staionService.move(id).subscribe((details)=>
+    {
+this.selected=details;
+console.log(this.selected);
+
+    })
+  
+  }
+
+
+  //next button
+  next()
+  {
+    this.selectedid=true;
+    this.notselected=false
+    const id=Number(localStorage.getItem("numbers"));
+   
+  
+    console.log(id);
+    
+    this.getId(Number(id)+1)
+   
+      let moven=id+1;
+localStorage.removeItem('numbers');
+localStorage.setItem("numbers",moven.toString());
+   
+
+  }
+
+
+  back()
+  {
+    this.selectedid=true;
+    this.notselected=false
+    const id=Number(localStorage.getItem('numbers'));
+   
+    this.selectedid=true
+    console.log(id);
+    
+  }
 }
