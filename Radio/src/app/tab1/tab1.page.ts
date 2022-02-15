@@ -76,12 +76,34 @@ localStorage.setItem("numbers",moven.toString());
 
   back()
   {
+    
     this.selectedid=true;
     this.notselected=false
-    const id=Number(localStorage.getItem('numbers'));
+    const id=Number(localStorage.getItem("numbers"));
    
-    this.selectedid=true
+  
     console.log(id);
     
+    this.getId(Number(id)-1)
+   
+      let moven=id-1;
+localStorage.removeItem('numbers');
+localStorage.setItem("numbers",moven.toString());
+    
   }
+
+  playpause()
+{
+  console.log("pressed");
+  this.pausebutton=false;
+this.playbutton=true;
+
+}
+pauseplay()
+{
+ 
+  this.pausebutton=true;
+this.playbutton=false;
+
+}
 }

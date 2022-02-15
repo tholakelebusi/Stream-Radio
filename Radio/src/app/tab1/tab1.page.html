@@ -15,38 +15,35 @@
   </ion-header>
 
   <ion-card *ngIf="selectedid" class="card">
-    <audio id="player" src="{{selected[0].streamlink}}" autoplay>
+    <audio id="player" src="{{selected[0].streamlink}}" autoplay> </audio>
     <ion-card-header>
       <ion-card-subtitle> <img src={{selected[0].image}} class="img" /></ion-card-subtitle>
       <ion-card-title class="title">{{selected[0].name}}</ion-card-title>
     </ion-card-header>
   
-    <ion-card-content class="content">
+    <ion-card-content class="content" >
       <ion-button color="light" >
         <i class="material-icons" (click)="back()">
+          skip_previous
         </i>
       </ion-button>
     
       
-      <ion-button color="light">
-        <i onclick="document.getElementById('player').play()" class="material-icons" *ngIf="playbutton" (click)="playpause()">
-         
-        </i>
+      <ion-button color="light" *ngIf="pausebutton">
+        <i  onclick="document.getElementById('player').play()" class="material-icons"  (click)="playpause()">pause</i>
       </ion-button>
     
-      <ion-button color="light">
-        <i onclick="document.getElementById('player').pause()" class="material-icons" *ngIf="pausebutton" (click)="pauseplay()">
-          
-        </i>
+      <ion-button color="light" *ngIf="playbutton">
+        <i  onclick="document.getElementById('player').pause()" class="material-icons"  (click)="pauseplay()"> play_arrow</i>
       </ion-button>
     
       <ion-button color="light">
       <i class="material-icons" (click)="next()">
-      
+          skip_next
       </i>
       </ion-button>
     </ion-card-content>
-  </audio>
+ 
   </ion-card>
  
 
