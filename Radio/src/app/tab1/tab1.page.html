@@ -19,6 +19,9 @@
     <ion-card-header>
       <ion-card-subtitle> <img src={{selected[0].image}} class="img" /></ion-card-subtitle>
       <ion-card-title class="title">{{selected[0].name}}</ion-card-title>
+      <i class="material-icons" class="heart" (click)="favourite(selected[0]._id)">
+        favorite
+      </i>
     </ion-card-header>
   
     <ion-card-content class="content" >

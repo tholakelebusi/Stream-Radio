@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StationsService } from '../services/stations.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  favourite:any;
+  constructor(private radioService:StationsService) {}
+
+  ngOnInit(): void {
+    let id=localStorage.getItem("favourite");
+    
+    this.radioService.getOne(id).subscribe((stations)=>
+    this.favourite=stations
+    );
+  }
+ 
+
 
 }
