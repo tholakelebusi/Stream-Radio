@@ -13,8 +13,8 @@ export class Tab1Page {
   selectedid:boolean=false
   notselected:boolean=true
   nextb:any;
-  playbutton:boolean=false;
-  pausebutton:boolean=true;
+  playbutton:boolean=true;
+  pausebutton:boolean=false;
   searched: Object;
 
  name:any;
@@ -62,9 +62,16 @@ console.log(this.selected);
    
   
     console.log(id);
-    
+    if(id==9)
+    {
+      let id=0;
     this.getId(Number(id)+1)
-   
+    }
+    else
+    {
+      this.getId(Number(id)+1)
+    }
+
       let moven=id+1;
 localStorage.removeItem('numbers');
 localStorage.setItem("numbers",moven.toString());
